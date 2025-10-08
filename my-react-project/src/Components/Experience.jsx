@@ -1,40 +1,70 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import { FaBriefcase } from "react-icons/fa";
 
 export default function Experience() {
-
   const experiences = [
     {
       id: 1,
-      company: 'Devn Migration Pvt ltd (Front-end Developer Intern)',
-      period: '2024 - Present',
-      description: 'Designing and implementing the user interface and user experience of a web application',
+      company: "Devn Migration Pvt Ltd",
+      role: "Front-end Developer Intern",
+      period: "2024 - Present",
+      description:
+        "Designing and implementing responsive user interfaces using React, Tailwind CSS, and modern front-end practices to enhance user experience.",
     },
-    // Add more experiences as needed
+   
   ];
 
   return (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto">
-        {/* Experience Title */}
-        <h2 className="text-3xl font-bold mb-4 text-left">Experience</h2>
+    <section
+      id="experience"
+      className="py-20 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-700  text-white"
+    >
+      <div className="max-w-5xl mx-auto px-6">
+        {/* Title */}
+        <motion.h2
+          className="text-4xl font-bold mb-12 text-center"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Experience
+        </motion.h2>
 
-        {/* Experience Cards */}
-        <div className=" gap-8">
-          {experiences.map(exp => (
-            <div key={exp.id} className=" p-6">
-              <div className="flex text-lg font-medium text-gray-600 space-x-12">
-              <h3>{exp.period}</h3>
-              <h3>{exp.company}</h3>
+        {/* Timeline Container */}
+        <div className="relative border-l-4 border-pink-400 pl-6 space-y-10">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={exp.id}
+              className="relative bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:shadow-pink-400/40 transition duration-300"
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              {/* Timeline Dot */}
+              <div className="absolute -left-[38px] top-8 w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center shadow-md">
+                <FaBriefcase className="text-white text-sm" />
               </div>
-              <h4 className="text-lg">{exp.title}</h4>
-              
-              <p className="mt-2">{exp.description}</p>
-            </div>
+
+              {/* Content */}
+              <h3 className="text-xl font-semibold text-yellow-300">
+                {exp.role}
+              </h3>
+              <p className="text-sm text-gray-200 mb-2">{exp.company}</p>
+              <p className="text-sm italic text-gray-300 mb-3">
+                {exp.period}
+              </p>
+              <p className="text-base text-gray-100 leading-relaxed">
+                {exp.description}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 

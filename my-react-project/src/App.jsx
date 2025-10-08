@@ -6,6 +6,9 @@ import Header from "./Components/Nav";
 import Project from "./Components/Project";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import Skills from "./Components/Skills";
+import Services from "./Components/Services";
+import Education from "./Components/Education";
 
 
 function App() {
@@ -19,7 +22,11 @@ function App() {
        
         <Hero/>
         <Experience/>
+      
+        <Skills/>
         <Project />
+          <Education/>
+        <Services/>
         <Contact />
       </main>
 
