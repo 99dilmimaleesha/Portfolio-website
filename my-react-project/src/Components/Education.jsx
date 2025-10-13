@@ -5,10 +5,10 @@ import { FaGraduationCap } from "react-icons/fa";
 const educationData = [
   {
     id: 1,
-    degree: "BSc in Computer Science",
-    institution: "University of Colombo",
+    degree: "Bachelor of Information and Communication Technology",
+    institution: "Uva Wellassa University of Sri Lanka",
     period: "2021 - 2025",
-    description: "Focused on Web Development, UI/UX, and Software Engineering principles.",
+    description: "",
   },
 
 ];

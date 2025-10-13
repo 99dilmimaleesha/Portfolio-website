@@ -36,7 +36,7 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="#blog" className="hover:underline">
+              <a href="https://medium.com/@dilmalee99" className="hover:underline">
                 Blog
               </a>
             </li>

@@ -64,6 +64,26 @@ export default function Hero() {
           <span className="text-pink-300"> modern web technologies</span>.
         </motion.p>
       </div>
+      <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center mt-8">
+  {/* Contact Button */}
+  <a
+    href="#contact"
+    className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-out bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-lg hover:scale-105 hover:shadow-pink-500/50"
+  >
+    <span className="relative z-10">Let's Talk 💬</span>
+    <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+  </a>
+
+  {/* Download CV Button */}
+  <a
+    href="/Dilmi_Wickramasinghe_CV.pdf"
+    download
+    className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-out hover:scale-105"
+  >
+    <span>📄 Download CV</span>
+  </a>
+</div>
+
     </section>
   );
 }
