@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaGithub } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiFramer, SiFirebase } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiFramer, } from "react-icons/si";
 
 const skills = [
   { name: "React", icon: <FaReact className="text-sky-400" /> },
@@ -11,7 +11,6 @@ const skills = [
   { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
   { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" /> },
   { name: "Framer Motion", icon: <SiFramer className="text-pink-400" /> },
-  { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
   { name: "GitHub", icon: <FaGithub className="text-gray-300" /> },
 ];
 

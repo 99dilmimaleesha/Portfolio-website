@@ -1,10 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ProfilePic from "../assets/Profile_Img.png"; 
+import ProfilePic from "../assets/Profile_Img.png";
 
 export default function Hero() {
+  const handleDownload = () => {
+    // Force download of CV
+    const link = document.createElement("a");
+    link.href = "/Dilmi_Wickramasinghe_CV.pdf";
+    link.download = "Dilmi_Wickramasinghe_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-700 via-pink-600 to-purple-800 overflow-hidden text-white">
+      
       {/* Background Splash / Glow */}
       <div className="absolute -top-32 w-[500px] h-[500px] bg-gradient-to-r from-pink-400 via-purple-500 to-yellow-400 rounded-full blur-3xl opacity-40 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gradient-to-t from-yellow-400 via-pink-400 to-transparent rounded-full blur-3xl opacity-40" />
@@ -12,7 +23,7 @@ export default function Hero() {
 
       {/* Profile Image */}
       <motion.div
-        className="relative z-10 mb-6"
+        className="relative z-20 mb-6"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -33,15 +44,14 @@ export default function Hero() {
       </motion.div>
 
       {/* Text Content */}
-      <div className="text-center px-6 md:px-0">
+      <div className="text-center px-6 md:px-0 z-20">
         <motion.h2
           className="text-4xl md:text-5xl font-bold mb-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Hi there! I’m{" "}
-          <span className="text-yellow-300">Dilmi Wickramasinghe</span>
+          Hi there! I’m <span className="text-yellow-300">Dilmi Wickramasinghe</span>
         </motion.h2>
 
         <motion.h3
@@ -64,26 +74,30 @@ export default function Hero() {
           <span className="text-pink-300"> modern web technologies</span>.
         </motion.p>
       </div>
-      <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center mt-8">
-  {/* Contact Button */}
-  <a
-    href="#contact"
-    className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-out bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-lg hover:scale-105 hover:shadow-pink-500/50"
-  >
-    <span className="relative z-10">Let's Talk 💬</span>
-    <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-  </a>
 
-  {/* Download CV Button */}
-  <a
-    href="/Dilmi_Wickramasinghe_CV.pdf"
-    download
-    className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-out hover:scale-105"
-  >
-    <span>📄 Download CV</span>
-  </a>
-</div>
+      {/* Buttons */}
+      <div className="relative z-30 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8">
+        {/* Contact Button */}
+        <motion.a
+          href="#contact"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+          className="group relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white rounded-full shadow-lg bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 ease-out cursor-pointer hover:shadow-pink-500/50"
+        >
+          <span className="relative z-10">Let's Talk 💬</span>
+          <span className="absolute inset-0 rounded-full opacity-0 bg-gradient-to-r from-pink-500 to-purple-600 group-hover:opacity-100 transition-opacity duration-300" />
+        </motion.a>
 
+        {/* Download CV Button */}
+        <motion.button
+          onClick={handleDownload}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+          className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold border-2 border-white rounded-full text-white transition-all duration-300 ease-out cursor-pointer hover:bg-white hover:text-black"
+        >
+          📄 Download CV
+        </motion.button>
+      </div>
     </section>
   );
 }
