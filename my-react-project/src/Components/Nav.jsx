@@ -1,86 +1,71 @@
 import React, { useState } from "react";
-import {
-  FaLinkedin,
-  FaGithub,
-  FaEnvelope,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaBars, FaTimes } from "react-icons/fa";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleSidebar = () => setIsOpen(!isOpen);
+
+  const navLinks = [
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Blog", href: "https://medium.com/@dilmalee99", external: true },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  const socialLinks = [
+    { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/dilmi-wickramasingha-189978220/", color: "hover:text-blue-700" },
+    { icon: <FaGithub />, href: "https://github.com/99dilmimaleesha", color: "hover:text-gray-800" },
+    { icon: <FaEnvelope />, href: "mailto:dilmimaleesha300@gmail.com", color: "hover:text-red-700" },
+  ];
 
   return (
-    <header className="text-black p-4 ">
-      <div className="container mx-auto p-4 flex justify-between items-center">
-        {/* Navigation Links */}
-        <nav className="hidden md:flex space-x-4 font-medium">
-          <ul className="flex space-x-4">
-            <li>
-              <a href="#about" className="hover:underline">
-                About
+    <header className="relative z-50">
+      <div className="container mx-auto flex items-center justify-between p-4">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-6 font-medium">
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline transition"
+              >
+                {link.name}
               </a>
-            </li>
-            <li>
-              <a href="#experience" className="hover:underline">
-                Experience
+            ) : (
+              <a key={link.name} href={link.href} className="hover:underline transition">
+                {link.name}
               </a>
-            </li>
-            <li>
-              <a href="#projects" className="hover:underline">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="https://medium.com/@dilmalee99" className="hover:underline">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:underline">
-                Contact
-              </a>
-            </li>
-          </ul>
+            )
+          )}
         </nav>
 
-        {/* Social Media Icons */}
+        {/* Desktop Social Icons */}
         <div className="hidden md:flex space-x-4">
-          <a
-            href="https://www.linkedin.com/in/your-profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            className=" hover:text-blue-700 transition duration-300"
-          >
-            <FaLinkedin size={24} />
-          </a>
-          <a
-            href="https://github.com/your-username"
-            target="_blank"
-            rel="noopener noreferrer"
-            className=" hover:text-gray-800 transition duration-300"
-          >
-            <FaGithub size={24} />
-          </a>
-          <a
-            href="mailto:your-email@example.com"
-            className=" hover:text-red-700 transition duration-300"
-          >
-            <FaEnvelope size={24} />
-          </a>
+          {socialLinks.map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`transition duration-300 ${social.color}`}
+            >
+              {React.cloneElement(social.icon, { size: 24 })}
+            </a>
+          ))}
         </div>
 
-        {/* Hamburger Icon for Mobile */}
+        {/* Mobile Hamburger */}
         <button className="md:hidden text-black" onClick={toggleSidebar}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
       </div>
 
-      {/* Overlay (click to close) */}
+      {/* Mobile Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
@@ -88,79 +73,59 @@ export default function Header() {
         ></div>
       )}
 
-      {/* Sidebar for Mobile */}
-      <div
-        className={`fixed inset-y-0 right-0 w-64 bg-white shadow-2xl transform ${
+      {/* Mobile Sidebar */}
+      <aside
+        className={`fixed inset-y-0 right-0 w-64 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden z-50 ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden z-50`}
+        }`}
       >
-        <div className="p-4">
-          <ul className="space-y-4 text-lg font-medium">
-            <li>
-              <a
-                href="#about"
-                onClick={toggleSidebar}
-                className="hover:underline"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#experience"
-                onClick={toggleSidebar}
-                className="hover:underline"
-              >
-                Experience
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                onClick={toggleSidebar}
-                className="hover:underline"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                onClick={toggleSidebar}
-                className="hover:underline"
-              >
-                Contact
-              </a>
-            </li>
+        <div className="p-6 flex flex-col h-full justify-between">
+          {/* Navigation Links */}
+          <ul className="flex flex-col space-y-6 text-lg font-medium">
+            {navLinks.map((link) =>
+              link.external ? (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={toggleSidebar}
+                    className="hover:underline transition"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ) : (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    onClick={toggleSidebar}
+                    className="hover:underline transition"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              )
+            )}
           </ul>
 
-          {/* Social Media Icons in Sidebar */}
-          <div className="flex justify-center space-x-4 mt-8">
-            <a
-              href="https://www.linkedin.com/in/your-profile"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-700 transition duration-300"
-            >
-              <FaLinkedin size={24} />
-            </a>
-            <a
-              href="https://github.com/your-username"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-800 transition duration-300"
-            >
-              <FaGithub size={24} />
-            </a>
-            <a
-              href="mailto:your-email@example.com"
-              className="hover:text-red-700 transition duration-300"
-            >
-              <FaEnvelope size={24} />
-            </a>
+          {/* Social Icons */}
+          <div className="flex justify-center space-x-6 mt-8">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`transition duration-300 ${social.color}`}
+              >
+                {React.cloneElement(social.icon, { size: 28 })}
+              </a>
+            ))}
           </div>
         </div>
-      </div>
+      </aside>
     </header>
   );
 }
+

@@ -6,9 +6,9 @@ export default function Experience() {
   const experiences = [
     {
       id: 1,
-      company: "Devn Migration Pvt Ltd",
+      company: "Onsty",
       role: "Front-end Developer Intern",
-      period: "2024 - Present",
+      period: "Apr 2024 - Aug 2025",
       description:
         "Designing and implementing responsive user interfaces using React, Tailwind CSS, and modern front-end practices to enhance user experience.",
     },
