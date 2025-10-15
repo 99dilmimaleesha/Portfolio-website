@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Hero from "./Components/Hero";
 import Experience from "./Components/Experience";
@@ -10,26 +10,38 @@ import Skills from "./Components/Skills";
 import Services from "./Components/Services";
 import Education from "./Components/Education";
 import About from "./Components/About";
-
+import Loader from "./Components/Loader"; // import Loader
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // Loader shows for 2 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      <Header />
-
-      <main>
-        <Hero />
-        <About/>
-        <Experience />
-        <Skills />
-        <Project />
-        <Services />
-        <Contact />
-      </main>
-
-      <Footer />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Header />
+          <main>
+            <Hero />
+            <About />
+            <Experience />
+            <Skills />
+            <Project />
+            <Services />
+            <Contact />
+          </main>
+          <Footer />
+        </>
+      )}
     </>
   );
 }
 
 export default App;
+
