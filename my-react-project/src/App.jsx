@@ -9,24 +9,21 @@ import Footer from "./Components/Footer";
 import Skills from "./Components/Skills";
 import Services from "./Components/Services";
 import Education from "./Components/Education";
+import About from "./Components/About";
 
 
 function App() {
-  
-
   return (
     <>
       <Header />
 
       <main>
-       
-        <Hero/>
-        <Experience/>
-      
-        <Skills/>
+        <Hero />
+        <About/>
+        <Experience />
+        <Skills />
         <Project />
-          <Education/>
-        <Services/>
+        <Services />
         <Contact />
       </main>
 

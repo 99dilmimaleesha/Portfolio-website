@@ -8,10 +8,17 @@
   100% { background-position: 0% 50%; }
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradientBackground 8s ease infinite;
 }
+
+
 
 
 
