@@ -1,12 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaReact,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaGithub,
-} from "react-icons/fa";
+import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaGithub } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs, SiFramer, SiMui } from "react-icons/si";
 
 const skills = [
@@ -25,21 +19,17 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-24 bg-gradient-to-tr from-purple-100 via-purple-200 to-purple-300 overflow-hidden"
+      className="relative py-24 bg-gradient-to-br from-indigo-100 via-violet-100 to-white overflow-hidden"
     >
-      {/* Cartoonish floating glows */}
-      <div className="absolute top-10 left-10 w-64 h-64 bg-purple-300/20 rounded-3xl blur-3xl animate-pulse" />
-      <div className="absolute bottom-10 right-16 w-80 h-80 bg-pink-300/20 rounded-3xl blur-3xl animate-pulse" />
-
       <div className="relative z-10 max-w-6xl mx-auto text-center px-6">
         {/* Section Title */}
         <motion.h2
-          className="text-4xl md:text-5xl font-extrabold text-purple-800 mb-12 drop-shadow-[0_0_10px_rgba(0,0,0,0.2)]"
+          className="text-4xl md:text-5xl font-bold text-purple-800 mb-12 drop-shadow-[0_0_10px_rgba(0,0,0,0.2)]"
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          My Superpowers
+         Technologies
         </motion.h2>
 
         {/* Skill Cards */}
@@ -57,7 +47,11 @@ export default function Skills() {
               {/* Floating Icon */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="text-5xl mb-3"
               >
                 {skill.icon}
@@ -76,5 +70,3 @@ export default function Skills() {
     </section>
   );
 }
-
-

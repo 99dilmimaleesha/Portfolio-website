@@ -1,20 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-
 export default function Hero() {
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/Dilmi_Wickramasinghe_CV.pdf";
-    link.download = "Dilmi_Wickramasinghe_CV.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-100 via-violet-100 to-white overflow-hidden text-slate-800">
-      
       {/* Soft Background Glows */}
       <div className="absolute -top-40 left-10 w-[500px] h-[500px] bg-indigo-300 rounded-full blur-3xl opacity-30 animate-pulse" />
       <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-violet-300 rounded-full blur-3xl opacity-40 animate-pulse" />
@@ -60,15 +49,18 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
         >
-          I craft elegant, responsive, and engaging user interfaces using
-          <span className="text-violet-600 font-semibold"> React </span> and
-          <span className="text-indigo-500 font-semibold"> modern web technologies</span>.
+           Crafting Intuitive User Experience (UX) with
+          <span className="text-violet-600 font-semibold"> React js</span> and
+          <span className="text-indigo-500 font-semibold">
+            {" "}
+            JavaScript
+          </span>
+          .
         </motion.p>
       </div>
 
       {/* Buttons */}
       <div className="relative z-30 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8">
-        
         {/* Contact Button */}
         <motion.a
           href="#contact"
@@ -76,22 +68,22 @@ export default function Hero() {
           whileTap={{ scale: 0.98 }}
           className="group relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white rounded-full shadow-lg bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-300 ease-out cursor-pointer hover:shadow-indigo-300/50"
         >
-          <span className="relative z-10">Let's Talk 💬</span>
+          <span className="relative z-10">Let's Talk</span>
           <span className="absolute inset-0 rounded-full opacity-0 bg-gradient-to-r from-violet-500 to-indigo-600 group-hover:opacity-100 transition-opacity duration-300" />
         </motion.a>
 
-        {/* Download CV Button */}
-        <motion.button
-          onClick={handleDownload}
+        {/* Open CV in new tab Button */}
+        <motion.a
+          href="/Dilmi_Wickramasinghe_CV.pdf" // path to your PDF
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
           className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold border-2 border-indigo-500 rounded-full text-indigo-700 transition-all duration-300 ease-out cursor-pointer hover:bg-indigo-600 hover:text-white hover:shadow-md"
         >
-          📄 Download CV
-        </motion.button>
+          View CV
+        </motion.a>
       </div>
     </section>
   );
 }
-
-

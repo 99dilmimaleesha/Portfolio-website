@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-24 bg-gradient-to-tr from-purple-200 via-indigo-200 to-pink-200 overflow-hidden"
+      className="relative py-24 bg-gradient-to-tr from-violet-300 via-indigo-200 to-pink-200 overflow-hidden"
     >
       {/* Cartoon Glows */}
       <div className="absolute top-0 left-1/3 w-80 h-80 bg-pink-300/30 rounded-full blur-3xl animate-pulse" />

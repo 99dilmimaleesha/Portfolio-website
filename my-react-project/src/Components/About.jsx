@@ -7,11 +7,11 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-24 bg-gradient-to-tr from-violet-300 via-indigo-200 to-pink-200 overflow-hidden"
+      className="relative py-24 bg-gradient-to-br from-indigo-100 via-violet-100 to-white overflow-hidden"
     >
-      {/* Background Glow */}
-      <div className="absolute top-10 left-10 w-80 h-80 bg-pink-400/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute -top-40 left-10 w-[500px] h-[500px] bg-indigo-300 rounded-full blur-3xl opacity-30 animate-pulse" />
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-violet-300 rounded-full blur-3xl opacity-40 animate-pulse" />
+      <div className="absolute top-0 right-1/3 w-[250px] h-[250px] bg-indigo-200 rounded-full blur-3xl opacity-50" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center md:items-start gap-12">
         {/* Left: Profile */}
@@ -37,20 +37,29 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-6 text-purple-800"
-            
-          >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-purple-800">
             About Me
           </h2>
 
           <p className="text-lg text-gray-800 leading-relaxed">
-            Hi! I’m a passionate frontend developer who loves crafting
-            interactive, visually appealing web experiences. I specialize in
-            React, Next.js, Tailwind CSS, and modern UI/UX design principles.
-            When I’m not coding, I enjoy exploring design trends, creating
-            digital art, and learning about new technologies that can make web
-            experiences more delightful.
+            Hey there! I’m{" "}
+            <span className="font-semibold text-purple-800">
+              Dilmi Wickramasinghe
+            </span>{" "}
+            — a passionate and curious developer who loves solving problems
+            through code. My journey started with a simple C program in my first
+            year at university, and that spark grew into a deep love for coding.
+            Since then, I’ve dived into the world of{" "}
+            <span className="font-medium text-purple-700">JavaScript</span> and{" "}
+            <span className="font-medium text-purple-700">React.js</span>,
+            building web apps that blend creativity and logic. I recently
+            completed my{" "}
+            <span className="font-medium text-purple-700">
+              Bachelor’s in Information and Communication Technology
+            </span>{" "}
+            from Uva Wellassa University, and I’m now excited to grow as a
+            developer — learning, collaborating, and solving meaningful problems
+            through technology.
           </p>
         </motion.div>
       </div>
