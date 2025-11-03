@@ -8,7 +8,6 @@ export default function Header() {
 
   const navLinks = [
     { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Blog", href: "https://medium.com/@dilmalee99", external: true },
     { name: "Contact", href: "#contact" },

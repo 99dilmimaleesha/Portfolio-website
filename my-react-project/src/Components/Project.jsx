@@ -20,7 +20,7 @@ export default function Projects() {
     },
     {
       id: 2,
-      name: "Table Reservation System",
+      name: "CheesyGrills",
       description:
         "A responsive restaurant reservation system that allows users to book, view, and manage table reservations seamlessly.",
       tags: ["HTML", "CSS", "JavaScript"],
