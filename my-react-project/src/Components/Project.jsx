@@ -41,13 +41,13 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-24 bg-white text-black">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-14 text-purple-800"
-          initial={{ opacity: 0, y: -30 }}
+          className="font-lusitana text-4xl md:text-5xl font-bold text-center mb-16 tracking-tight"
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
           Projects
         </motion.h2>
@@ -56,51 +56,55 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition p-4 bg-white"
-              initial={{ opacity: 0, y: 40 }}
+              className="flex flex-col rounded-xl border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 p-5"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.7 }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
             >
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
-              <h3 className="text-xl font-semibold text-purple-700 mb-2">
+              <div className="w-full h-48 overflow-hidden rounded-md mb-4">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+
+              <h3 className="font-inter text-lg font-semibold mb-2 text-neutral-900">
                 {project.name}
               </h3>
-              <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+              <p className="font-inter text-sm text-neutral-600 mb-4 leading-relaxed">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-5">
                 {project.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full"
+                    className="text-xs border border-neutral-300 text-neutral-700 px-3 py-1 rounded-full"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="flex gap-3">
+              <div className="mt-auto flex gap-3">
                 <a
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md transition"
+                  className="flex items-center gap-2 text-sm font-inter border border-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all"
                 >
-                  <FaExternalLinkAlt /> View
+                  <FaExternalLinkAlt className="text-sm" /> View
                 </a>
                 <a
                   href={project.codeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-purple-700 border border-purple-600 hover:bg-purple-50 px-4 py-2 rounded-md transition"
+                  className="flex items-center gap-2 text-sm font-inter border border-neutral-400 text-neutral-700 px-4 py-2 rounded-md hover:bg-neutral-900 hover:text-white transition-all"
                 >
-                  <FaGithub /> Code
+                  <FaGithub className="text-base" /> Code
                 </a>
               </div>
             </motion.div>
@@ -110,4 +114,5 @@ export default function Projects() {
     </section>
   );
 }
+
 

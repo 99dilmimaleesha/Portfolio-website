@@ -1,25 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lusitana:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@keyframes gradientBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+
+
+.font-lisitana {
+  font-family: 'Lusitana', serif;
 }
 
-body {
-
-  font-family: "Vend Sans", sans-serif;
-
+.font-inter {
+  font-family: 'Inter', sans-serif;
 }
 
-
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradientBackground 8s ease infinite;
-}
 
 
 
