@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HelloGirl from "../assets/HelloGirl.jpg"; // 🧍‍♀️ Replace with your actual image path
+import HelloGirl from "../assets/HelloGirl.jpg";
+import { IoOpenOutline } from "react-icons/io5";
 
 export default function Hero() {
   return (
@@ -10,14 +11,17 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-10 text-center max-w-3xl mx-auto">
-
         {/* 👋 Hello Girl Image - Appears Once and Hides */}
         <motion.img
           src={HelloGirl}
           alt="Hello Girl"
           className="mx-auto w-32 md:w-40 mb-4 rounded-full"
           initial={{ opacity: 0, y: -30, scale: 0.9 }}
-          animate={{ opacity: [0, 1, 1, 0], y: [-20, 0, 0, -20], scale: [0.9, 1, 1, 0.9] }}
+          animate={{
+            opacity: [0, 1, 1, 0],
+            y: [-20, 0, 0, -20],
+            scale: [0.9, 1, 1, 0.9],
+          }}
           transition={{
             duration: 3, // Total animation time
             times: [0, 0.2, 0.8, 1], // stages of the animation
@@ -55,8 +59,8 @@ export default function Hero() {
         >
           I build responsive, accessible, and minimal web interfaces with
           <span className="font-semibold text-black"> React.js </span> and
-          <span className="font-semibold text-black"> JavaScript</span> — focused
-          on simplicity and trust.
+          <span className="font-semibold text-black"> JavaScript</span> —
+          focused on simplicity and trust.
         </motion.p>
 
         {/* Buttons */}
@@ -76,9 +80,11 @@ export default function Hero() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="font-inter inline-flex items-center justify-center px-8 py-3 text-sm md:text-base font-semibold border-2 border-black rounded-full text-black hover:bg-black hover:text-white transition-all duration-300 ease-out"
+            className="font-inter inline-flex items-center justify-center gap-2 px-8 py-3 text-sm md:text-base font-semibold border-2 border-black rounded-full text-black hover:bg-black hover:text-white transition-all duration-300 ease-out"
           >
+            
             View CV
+            <IoOpenOutline className="text-lg" /> 
           </motion.a>
         </div>
       </div>
@@ -93,6 +99,3 @@ export default function Hero() {
     </section>
   );
 }
-
-
-
