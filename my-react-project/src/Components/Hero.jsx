@@ -1,28 +1,47 @@
 import React from "react";
 import { motion } from "framer-motion";
+import HelloGirl from "../assets/HelloGirl.jpg"; // 🧍‍♀️ Replace with your actual image path
 
 export default function Hero() {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen bg-white text-black overflow-hidden px-6 md:px-0">
-      {/* Minimal Background Accent (subtle gradient or shape) */}
+      {/* Background Accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-white to-neutral-100 pointer-events-none" />
 
       {/* Hero Content */}
       <div className="relative z-10 text-center max-w-3xl mx-auto">
+
+        {/* 👋 Hello Girl Image - Appears Once and Hides */}
+        <motion.img
+          src={HelloGirl}
+          alt="Hello Girl"
+          className="mx-auto w-32 md:w-40 mb-4 rounded-full"
+          initial={{ opacity: 0, y: -30, scale: 0.9 }}
+          animate={{ opacity: [0, 1, 1, 0], y: [-20, 0, 0, -20], scale: [0.9, 1, 1, 0.9] }}
+          transition={{
+            duration: 3, // Total animation time
+            times: [0, 0.2, 0.8, 1], // stages of the animation
+            ease: "easeInOut",
+          }}
+        />
+
         <motion.h1
           className="font-lisitana text-4xl md:text-6xl font-bold mb-4 tracking-tight"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
         >
-          Hi, I’m <span className="underline decoration-2 underline-offset-4">Dilmi Wickramasinghe</span>
+          Hi, I’m{" "}
+          <span className="underline decoration-2 underline-offset-4">
+            Dilmi Wickramasinghe
+          </span>
         </motion.h1>
 
         <motion.h2
           className="font-inter text-lg md:text-xl font-medium text-neutral-700 mb-6"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
         >
           Frontend Developer passionate about crafting intuitive, modern, and
           reliable user experiences.
@@ -32,7 +51,7 @@ export default function Hero() {
           className="font-inter text-base md:text-lg text-neutral-600 leading-relaxed mb-10"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
         >
           I build responsive, accessible, and minimal web interfaces with
           <span className="font-semibold text-black"> React.js </span> and
@@ -64,7 +83,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Soft Entry Motion Accent (optional, subtle) */}
+      {/* Accent circle */}
       <motion.div
         className="absolute bottom-20 w-20 h-20 bg-black opacity-[0.03] rounded-full blur-3xl"
         initial={{ opacity: 0 }}
@@ -74,4 +93,6 @@ export default function Hero() {
     </section>
   );
 }
+
+
 
