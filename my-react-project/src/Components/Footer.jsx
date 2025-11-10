@@ -1,16 +1,15 @@
-import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import React from "react";
+
 
 export default function Footer() {
   return (
-    <footer className="bg-white  py-4">
-      <div className="container mx-auto text-center">
-        
-        
-        {/* Copyright */}
-        <p>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
-      </div>
+    <footer className="bg-white dark:bg-black text-black dark:text-white text-center py-6 transition-colors duration-500">
+      {/* Copyright */}
+      <p className="text-sm">
+        &copy; {new Date().getFullYear()} Dilmi Wickramasinghe. All rights reserved.
+      </p>
     </footer>
   );
 }
+
 

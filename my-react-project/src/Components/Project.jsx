@@ -41,8 +41,12 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-24 bg-white text-black">
+    <section
+      id="projects"
+      className="py-24 bg-white text-black dark:bg-black dark:text-white transition-colors duration-500"
+    >
       <div className="max-w-6xl mx-auto px-6">
+        {/* Section Title */}
         <motion.h2
           className="font-lusitana text-4xl md:text-5xl font-bold text-center mb-16 tracking-tight"
           initial={{ opacity: 0, y: -20 }}
@@ -52,17 +56,20 @@ export default function Projects() {
           Projects
         </motion.h2>
 
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="flex flex-col rounded-xl border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 p-5"
+              className="flex flex-col rounded-xl border border-neutral-200 dark:border-neutral-800 
+                         bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-all duration-300 p-5"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
             >
+              {/* Project Image */}
               <div className="w-full h-48 overflow-hidden rounded-md mb-4">
                 <img
                   src={project.image}
@@ -71,30 +78,36 @@ export default function Projects() {
                 />
               </div>
 
-              <h3 className="font-inter text-lg font-semibold mb-2 text-neutral-900">
+              {/* Project Info */}
+              <h3 className="font-inter text-lg font-semibold mb-2 text-neutral-900 dark:text-neutral-100">
                 {project.name}
               </h3>
-              <p className="font-inter text-sm text-neutral-600 mb-4 leading-relaxed">
+              <p className="font-inter text-sm text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">
                 {project.description}
               </p>
 
+              {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-5">
                 {project.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="text-xs border border-neutral-300 text-neutral-700 px-3 py-1 rounded-full"
+                    className="text-xs border border-neutral-300 dark:border-neutral-700 
+                               text-neutral-700 dark:text-neutral-300 px-3 py-1 rounded-full transition-colors"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
+              {/* Links */}
               <div className="mt-auto flex gap-3">
                 <a
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm font-inter border border-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all"
+                  className="flex items-center gap-2 text-sm font-inter border border-black dark:border-white 
+                             px-4 py-2 rounded-md hover:bg-black dark:hover:bg-white 
+                             hover:text-white dark:hover:text-black transition-all"
                 >
                   <FaExternalLinkAlt className="text-sm" /> View
                 </a>
@@ -102,7 +115,10 @@ export default function Projects() {
                   href={project.codeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm font-inter border border-neutral-400 text-neutral-700 px-4 py-2 rounded-md hover:bg-neutral-900 hover:text-white transition-all"
+                  className="flex items-center gap-2 text-sm font-inter border border-neutral-400 dark:border-neutral-700 
+                             text-neutral-700 dark:text-neutral-300 px-4 py-2 rounded-md 
+                             hover:bg-neutral-900 dark:hover:bg-neutral-100 
+                             hover:text-white dark:hover:text-black transition-all"
                 >
                   <FaGithub className="text-base" /> Code
                 </a>
@@ -114,5 +130,6 @@ export default function Projects() {
     </section>
   );
 }
+
 
 

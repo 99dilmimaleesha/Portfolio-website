@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-24 bg-white text-black overflow-hidden"
+      className="relative py-24 bg-white text-black dark:bg-black dark:text-white transition-colors duration-500 overflow-hidden"
     >
       <div className="relative z-10 max-w-4xl mx-auto px-6">
         {/* Title */}
@@ -20,7 +20,7 @@ export default function Contact() {
 
         {/* Subtitle */}
         <motion.p
-          className="font-inter text-center text-neutral-700 max-w-2xl mx-auto mb-12 text-lg leading-relaxed"
+          className="font-inter text-center text-neutral-700 dark:text-neutral-400 max-w-2xl mx-auto mb-12 text-lg leading-relaxed"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -33,7 +33,7 @@ export default function Contact() {
         <motion.form
           action="https://formspree.io/f/your-form-id"
           method="POST"
-          className="bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 space-y-6"
+          className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 space-y-6"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -42,7 +42,7 @@ export default function Contact() {
             <div key={i}>
               <label
                 htmlFor={field.toLowerCase()}
-                className="font-inter block text-sm font-medium mb-2 text-neutral-800"
+                className="font-inter block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200"
               >
                 {field}
               </label>
@@ -52,7 +52,10 @@ export default function Contact() {
                   id={field.toLowerCase()}
                   name={field.toLowerCase()}
                   required
-                  className="font-inter w-full p-3 rounded-lg border border-neutral-300 text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-black transition"
+                  className="font-inter w-full p-3 rounded-lg border border-neutral-300 dark:border-neutral-700 
+                             bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 
+                             placeholder-neutral-500 dark:placeholder-neutral-400 
+                             focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition"
                   placeholder={`Enter your ${field.toLowerCase()}`}
                 />
               ) : (
@@ -61,7 +64,10 @@ export default function Contact() {
                   name="message"
                   rows={5}
                   required
-                  className="font-inter w-full p-3 rounded-lg border border-neutral-300 text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-black transition"
+                  className="font-inter w-full p-3 rounded-lg border border-neutral-300 dark:border-neutral-700 
+                             bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 
+                             placeholder-neutral-500 dark:placeholder-neutral-400 
+                             focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition"
                   placeholder="Write your message..."
                 />
               )}
@@ -73,7 +79,8 @@ export default function Contact() {
             type="submit"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="font-inter w-full bg-black text-white py-3 rounded-lg font-medium shadow-sm hover:shadow-md transition-all duration-300"
+            className="font-inter w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-lg font-medium 
+                       shadow-sm hover:shadow-md transition-all duration-300"
           >
             Send Message
           </motion.button>
@@ -81,7 +88,7 @@ export default function Contact() {
 
         {/* Divider Line */}
         <motion.div
-          className="mt-16 w-24 h-[2px] mx-auto bg-neutral-900 rounded-full"
+          className="mt-16 w-24 h-[2px] mx-auto bg-neutral-900 dark:bg-neutral-100 rounded-full"
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.8 }}
@@ -90,6 +97,7 @@ export default function Contact() {
     </section>
   );
 }
+
 
 
 

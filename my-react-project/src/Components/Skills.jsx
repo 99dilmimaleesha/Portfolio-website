@@ -30,7 +30,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-24 bg-white text-black overflow-hidden"
+      className="relative py-24 bg-white text-black dark:bg-black dark:text-white transition-colors duration-500 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto text-center px-6">
         {/* Section Title */}
@@ -48,7 +48,9 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              className="group flex flex-col items-center justify-center p-6 rounded-xl border border-neutral-200 hover:border-black transition-all duration-300 bg-white shadow-sm hover:shadow-md cursor-default"
+              className="group flex flex-col items-center justify-center p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 
+              bg-white dark:bg-neutral-900 hover:border-black dark:hover:border-white 
+              transition-all duration-300 shadow-sm hover:shadow-md cursor-default"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05, duration: 0.5 }}
@@ -56,7 +58,7 @@ export default function Skills() {
               whileHover={{ scale: 1.05 }}
             >
               <motion.div
-                className="text-5xl text-black mb-3"
+                className="text-5xl text-black dark:text-white mb-3"
                 animate={{ y: [0, -4, 0] }}
                 transition={{
                   duration: 3,
@@ -66,7 +68,7 @@ export default function Skills() {
               >
                 {skill.icon}
               </motion.div>
-              <h3 className="font-inter text-sm md:text-base font-medium text-neutral-800">
+              <h3 className="font-inter text-sm md:text-base font-medium text-neutral-800 dark:text-neutral-300">
                 {skill.name}
               </h3>
             </motion.div>
@@ -76,4 +78,5 @@ export default function Skills() {
     </section>
   );
 }
+
 
